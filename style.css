@@ -5,58 +5,98 @@
     text-align:center;
     padding:10px;
     border: 4px solid greenyellow;
-    margin:20px;
+    margin:10px;
     
 }
-
+.display-4{
+    font-size:42px;
+}
 .jumbotron{
     text-align:center;
     font-size:18px;
 
+}
+.container{
+    font-family: 'Sriracha', cursive;
 }
 
 .main-container{
     position:relative;
     background-color:gray;
     color:#fff;
+    
 }
 .repos-container{
     background-color:gray;
     color: #fff;
-    height: 100px;
-    width:200px;
+    height: 150px;
+    width:300px;
     text-align:center;
     border-radius:20px;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .followers-container{
     background-color:gray;
     color: #fff;
-    height: 100px;
-    width:200px;
+    height: 150px;
+    width:300px;
     text-align:center;
     border-radius:20px;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .following-container{
     background-color:gray;
     color: #fff;
-    height: 100px;
-    width:200px;
+    height: 150px;
+    width:300px;
     text-align:center;
     border-radius:20px;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .stars-container{
     background-color:gray;
     color: #fff;
-    height: 100px;
-    width:200px;
+    height: 150px;
+    width:300px;
     text-align:center;
     border-radius:20px;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .content-container{
     background-color: greenyellow;
     width:80%;
-    height:500px;
+    height:800px;
+}
+
+.fab{
+    color:#fff;
+}
+
+.fas{
+    color:#fff;
+}
+
+a{
+    color:#fff;
+    text-emphasis: none;
+}
+
+a:hover{
+    color:#fff;
+    text-emphasis: none;
 }

@@ -30,7 +30,8 @@ function generate() {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Profile Generator</title>
-       
+
+        <link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="style.css">
        
@@ -40,18 +41,22 @@ function generate() {
     <div class="container main-container"> 
     
      <a href="${response.data.blog}"><img id="profilepic" src = ${response.data.avatar_url}/></a>
-     <br>
-     <p class = "location"> ${response.data.location}</p>
-       <h1 class="display-4">Hi! My name is ${response.data.name}</h1>
+     <h1>Hi!</h1>
+       <h2 class="display-4">My name is ${response.data.name}</h2>
      <p class = "bio">${response.data.bio}</p>
-     
+      <p class = "info"><i class="fas fa-map-pin"></i> ${response.data.location}      
+      <a href ="${response.data.html_url}"><i class="fab fa-github"></i> GitHub    </a>        
+      <a href ="${response.data.blog}"> <i class="fas fa-rss"></i> Portfolio </a>       
+      
+      </p>
+      
   </div> 
  </div>
  
- <div class= "container">
+ <div class= "container content-container">
  <div class = "row">
       <div class="repos-container">
-      <p class="favColor">My favorite color is  ${answers.favColor}</p>
+      
       <p class = "public-repos"> GitHub Repos: ${response.data.public_repos}</p>
       </div>
      <div class="followers-container">
@@ -98,5 +103,5 @@ function generate() {
 
   })
 }
-
+{/* <p class="favColor">My favorite color is  ${answers.favColor}</p> */}
 generate()
