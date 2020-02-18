@@ -18,7 +18,7 @@
 
 }
 .container{
-    font-family: 'Sriracha', cursive;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 .main-container{
@@ -26,7 +26,7 @@
     background-color:gray;
     color:#fff;
     box-shadow: 0 0 15px 10px darkgray;
-    
+    font-size:32px;
 }
 .repos-container{
     background-color:gray;
@@ -42,6 +42,7 @@
     top:15%;
     margin-bottom:50px;
     border: 0.5px solid black;
+    
     
     
 }
