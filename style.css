@@ -37,6 +37,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    top:15%;
+    margin-bottom:50px;
+    
 }
 
 .followers-container{
@@ -62,6 +65,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom:50px;
 }
 
 .stars-container{
@@ -80,7 +84,7 @@
 .content-container{
     background-color: greenyellow;
     width:80%;
-    height:800px;
+    height:500px;
 }
 
 .fab{
@@ -99,4 +103,12 @@ a{
 a:hover{
     color:#fff;
     text-emphasis: none;
+}
+
+.first-col{
+    left:15%;
+   
+}
+.second-col{
+    right: -5%;
 }
