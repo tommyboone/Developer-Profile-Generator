@@ -14,6 +14,7 @@
 .jumbotron{
     text-align:center;
     font-size:18px;
+    border-bottom: 1px solid darkgray;
 
 }
 .container{
@@ -24,6 +25,7 @@
     position:relative;
     background-color:gray;
     color:#fff;
+    box-shadow: 0 0 15px 10px darkgray;
     
 }
 .repos-container{
@@ -39,6 +41,8 @@
     align-items: center;
     top:15%;
     margin-bottom:50px;
+    border: 0.5px solid black;
+    
     
 }
 
@@ -53,6 +57,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 0.5px solid black;
 }
 .following-container{
     background-color:gray;
@@ -66,6 +71,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom:50px;
+    border: 0.5px solid black;
 }
 
 .stars-container{
@@ -79,12 +85,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 0.5px solid black; 
 }
 
 .content-container{
     background-color: greenyellow;
     width:80%;
     height:500px;
+    box-shadow: 0 0 10px 5px darkgray; 
 }
 
 .fab{

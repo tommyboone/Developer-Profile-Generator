@@ -1,6 +1,7 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
+// const jquery = require("jquery");
 // const util = require("util");
 
 const questions = [
@@ -16,7 +17,6 @@ const questions = [
     choices: ["green", "blue", "red", "yellow", "pink"]
   }
 ];
-
 
 
 function generate() {
@@ -102,7 +102,9 @@ function generate() {
       fs.writeFile("index.html", newHTML, function(err) {
         if (err) {
           throw err;
-        } else {
+          
+        } 
+        else {
           console.log("success!");
           
         }
