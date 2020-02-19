@@ -18,4 +18,4 @@ I WANT a developer profile generator
 SO THAT I can easily prepare reports for stakeholders
 
 # GIF Demo
-![]https://media.giphy.com/media/KZq2MBG53sx1Dnk8zf/giphy.gif
+![](https://media.giphy.com/media/KZq2MBG53sx1Dnk8zf/giphy.gif)
