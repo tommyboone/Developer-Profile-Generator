@@ -1,7 +1,8 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
-const jquery = require("jquery");
+const htmlPdf = require('html-pdf');
+// const jquery = require("jquery");
 
 // const util = require("util");
 
@@ -139,9 +140,14 @@ function generate() {
           console.log("success!");
         }
       });
+    
     });
   });
 }
 {
 }
+// function makePDF(htmlPdf){
+//     options =  {format: 'Letter'};
+//     pdf.create(htmlPdf, options).toFile('./resume.pdf')  
+// }
 generate();
