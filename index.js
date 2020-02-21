@@ -1,9 +1,9 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
-const pdf = require("html-pdf");
-const options = {format: "Letter", charset:"utf-8"}
-
+// const pdf = require("html-pdf");
+const options = { format: "Letter", charset: "utf-8" }; //, orientation:"Portrait"};
+const htmlPdf = require("html-pdf-chrome");
 
 const questions = [
   {
@@ -103,6 +103,7 @@ function generate() {
         box-shadow: 0 0 15px 10px darkgray;
         font-size:32px;
         width:50vw;
+        text-align:center;
     }
     .repos-container{
         background-color:gray;
@@ -318,7 +319,7 @@ function generate() {
     </head>
 
     <body>
-    <div class="jumbotron jumbotron-fluid">
+    
     <div class="container main-container ${containerClass}"> 
     
      <a href="${response.data.blog}"><img id="${picContainer}" src = ${response.data.avatar_url}/></a>
@@ -382,18 +383,22 @@ function generate() {
           throw err;
         } else {
           console.log("success!");
-     
-        //   makePdf(newHTML);
-        // }
-        // function makePdf(htmlPdf) {
-          pdf
-            .create(newHTML, options)
-            .toFile("./resume.pdf", function(err, res) {
-              if (err) return console.log(err);
-              console.log("Pdf Successfully generated", res);
-            });
 
-        
+          //   makePdf(newHTML);
+          // }
+          // function makePdf(htmlPdf) {
+          // pdf
+          //   .create(newHTML, options)
+          //   .toFile("./resume.pdf", function(err, res) {
+          //     if (err) return console.log(err);
+          //     console.log("Pdf Successfully generated", res);
+          //   });
+          htmlPdf
+            .create(newHTML, options)
+            .then(pdf => pdf.toFile("resume.pdf"));
+          htmlPdf.create(newHTML, options).then(pdf => pdf.toBase64());
+          htmlPdf.create(newHTML, options).then(pdf => pdf.toBuffer());
+          console.log("Successfully created PDF");
         }
       });
     });
