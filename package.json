@@ -1,7 +1,7 @@
 {
   "name": "profile-generator",
   "version": "1.0.0",
-  "description": "user gets a dynamically generator profile based on their github username and favorite color",
+  "description": "user gets a dynamically generated profile based on their github username and favorite color",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +20,7 @@
     "axios": "^0.19.2",
     "html-pdf": "^2.2.0",
     "inquirer": "^7.0.4",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "npm": "^6.13.7"
   }
 }
