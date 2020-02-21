@@ -1,10 +1,9 @@
 const fs = require("fs");
 const axios = require("axios");
 const inquirer = require("inquirer");
-const htmlPdf = require('html-pdf');
-// const jquery = require("jquery");
+const pdf = require("html-pdf");
+const options = {format: "Letter", charset:"utf-8"}
 
-// const util = require("util");
 
 const questions = [
   {
@@ -20,40 +19,39 @@ const questions = [
   }
 ];
 
-
 function generate() {
   inquirer.prompt(questions).then(answers => {
     console.log(answers);
-    let containerClass = 'content-container';
-    let infoContainer = 'info-container'
-    let picContainer = 'profilepic'
-    
-    switch(answers.favColor){
-        case 'blue':
-            containerClass = 'content-container-blue'
-            infoContainer = 'info-container-blue'
-            picContainer = 'profilepic-blue'
-            break;
-        case 'red':
-            containerClass= 'content-container-red'
-            infoContainer= 'info-container-red'
-            picContainer= 'profilepic-red'
-            break;
-        case 'yellow':
-            containerClass = 'content-container-yellow'
-            infoContainer= 'info-container-yellow'
-            picContainer= 'profilepic-yellow'
-            break;
-        case 'green':
-            containerClass= 'content-container-green'
-            infoContainer= 'info-container-green'
-            picContainer = 'profilepic-green'
-            break;
-        case 'pink':
-            containerClass= 'content-container-pink'
-            infoContainer= 'info-container-pink'
-            picContainer= 'profilepic-pink'
-            break;        
+    let containerClass = "content-container";
+    let infoContainer = "info-container";
+    let picContainer = "profilepic";
+
+    switch (answers.favColor) {
+      case "blue":
+        containerClass = "content-container-blue";
+        infoContainer = "info-container-blue";
+        picContainer = "profilepic-blue";
+        break;
+      case "red":
+        containerClass = "content-container-red";
+        infoContainer = "info-container-red";
+        picContainer = "profilepic-red";
+        break;
+      case "yellow":
+        containerClass = "content-container-yellow";
+        infoContainer = "info-container-yellow";
+        picContainer = "profilepic-yellow";
+        break;
+      case "green":
+        containerClass = "content-container-green";
+        infoContainer = "info-container-green";
+        picContainer = "profilepic-green";
+        break;
+      case "pink":
+        containerClass = "content-container-pink";
+        infoContainer = "info-container-pink";
+        picContainer = "profilepic-pink";
+        break;
     }
     const queryURL = `https://api.github.com/users/${answers.username}`;
     axios.get(queryURL).then(function(response) {
@@ -67,10 +65,256 @@ function generate() {
         <title>Profile Generator</title>
 
         <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style.css">
 
+       <style>
+     
+
+       #profilepic{
+        border-radius:100px;
+        height:200px;
+        width:200px;
+        text-align:center;
+        padding:3px;
+        border: 4px solid greenyellow;
+        margin:10px;
+        
+    }
+   
+    .display-4{
+        font-size:42px;
+    }
+    .jumbotron{
+        text-align:center;
+        font-size:18px;
+        border-bottom: 1px solid darkgray;
+        position:relative;
+    }
+    .container{
+        font-family: 'Rajdhani', sans-serif;
+    }
+    
+    .main-container{
+        position:relative;
+        background-color:gray;
+        color:#fff;
+        box-shadow: 0 0 15px 10px darkgray;
+        font-size:32px;
+        width:50vw;
+    }
+    .repos-container{
+        background-color:gray;
+        color: #fff;
+        height: 150px;
+        width:300px;
+        text-align:center;
+        border-radius:20px;
+        font-size: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top:15%;
+        margin-bottom:50px;
+        border: 0.5px solid black;
+        margin-top:60px;
+        box-shadow: 0 0 10px 5px #fff; 
+        
+        
+        
+    }
+    
+    .followers-container{
+        background-color:gray;
+        color: #fff;
+        height: 150px;
+        width:300px;
+        text-align:center;
+        border-radius:20px;
+        font-size: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.5px solid black;
+        box-shadow: 0 0 10px 5px #fff; 
+    }
+    .following-container{
+        background-color:gray;
+        color: #fff;
+        height: 150px;
+        width:300px;
+        text-align:center;
+        border-radius:20px;
+        font-size: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom:50px;
+        border: 0.5px solid black;
+        margin-top:60px;
+        box-shadow: 0 0 10px 5px #fff; 
+    }
+    
+    .stars-container{
+        background-color:gray;
+        color: #fff;
+        height: 150px;
+        width:300px;
+        text-align:center;
+        border-radius:20px;
+        font-size: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.5px solid black; 
+        box-shadow: 0 0 10px 5px #fff; 
+    }
+    
+    .content-container{
+        background-color: greenyellow;
+        width:80%;
+        height:500px;
+        box-shadow: 0 0 10px 5px darkgray; 
+    }
+    
+    .fab{
+        color:#fff;
+    }
+    
+    .fas{
+        color:#fff;
+    }
+    
+    a{
+        color:#fff;
+        text-emphasis: none;
+    }
+    
+    a:hover{
+        color:#fff;
+        
+    }
+    
+    .first-col{
+        left:5%;
        
+    }
+    
+    
+    .content-container-blue{
+        background-color: #4172FF;
+        width:50%;
+        height:600px;
+        box-shadow: 0 0 10px 5px darkgray; 
+    }
+    
+    .content-container-red{
+        background-color: #DF360F;
+        width:50%;
+        height:600px;
+        box-shadow: 0 0 10px 5px darkgray; 
+    }
+    .content-container-yellow{
+        background-color: #FFDA1D;
+        width:50%;
+        height:600px;
+        box-shadow: 0 0 10px 5px darkgray; 
+    }
+    .content-container-green{
+        background-color: #13B300;
+        width:50%;
+        height:600px;
+        box-shadow: 0 0 10px 5px darkgray; 
+    }
+    .content-container-pink{
+        background-color: #FF87F6;
+        width:50%;
+        height:600px;
+        box-shadow: 0 0 10px 5px darkgray; 
+    }
+    
+    .info-container-blue{
+        background-color: #FFCA40;
+    
+    }
+    
+    .info-container-red{
+        background-color: #2BFFB3;
+    
+    }
+    
+    .info-container-yellow{
+        background-color: #7130FF;
+    
+    }
+    .info-container-green{
+        background-color: #FF21DA;
+    
+    }
+    .info-container-pink{
+        background-color: #60FF1C;
+    
+    }
+    
+    #profilepic-red{
+        border-radius:100px;
+        height:200px;
+        width:200px;
+        text-align:center;
+        padding:3px;
+        border: 4px solid #2BFFB3;
+        margin:10px;
+        
+    }
+    
+    #profilepic-blue{
+        border-radius:100px;
+        height:200px;
+        width:200px;
+        text-align:center;
+        padding:3px;
+        border: 4px solid #FFCA40;
+        margin:10px;
+        
+    }
+    
+    #profilepic-green{
+        border-radius:100px;
+        height:200px;
+        width:200px;
+        text-align:center;
+        padding:3px;
+        border: 4px solid #FF21DA;
+        margin:10px;
+        
+    }
+    
+    #profilepic-yellow{
+        border-radius:100px;
+        height:200px;
+        width:200px;
+        text-align:center;
+        padding:3px;
+        border: 4px solid #7130FF;
+        margin:10px;
+        
+    }
+    
+    #profilepic-pink{
+        border-radius:100px;
+        height:200px;
+        width:200px;
+        text-align:center;
+        padding:3px;
+        border: 4px solid #60FF1C;
+        margin:10px;
+        
+    }
+    h1{
+      font-size:32px;
+    }
+    </style>
     </head>
 
     <body>
@@ -90,8 +334,8 @@ function generate() {
       </p>
       
   </div> 
- </div>
- 
+  </div>  
+ <br>
  <div class= "container ${containerClass}">
  <div class = "row">
  <div class ="col-md-6 first-col">
@@ -115,7 +359,7 @@ function generate() {
       </div>
  </div>     
 </div>
-  
+
    
     <ul class="list-group">
     
@@ -138,16 +382,22 @@ function generate() {
           throw err;
         } else {
           console.log("success!");
+     
+        //   makePdf(newHTML);
+        // }
+        // function makePdf(htmlPdf) {
+          pdf
+            .create(newHTML, options)
+            .toFile("./resume.pdf", function(err, res) {
+              if (err) return console.log(err);
+              console.log("Pdf Successfully generated", res);
+            });
+
+        
         }
       });
-    
     });
   });
 }
-{
-}
-// function makePDF(htmlPdf){
-//     options =  {format: 'Letter'};
-//     pdf.create(htmlPdf, options).toFile('./resume.pdf')  
-// }
+
 generate();
