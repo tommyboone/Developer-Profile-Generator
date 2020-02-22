@@ -384,15 +384,7 @@ function generate() {
         } else {
           console.log("success!");
 
-          //   makePdf(newHTML);
-          // }
-          // function makePdf(htmlPdf) {
-          // pdf
-          //   .create(newHTML, options)
-          //   .toFile("./resume.pdf", function(err, res) {
-          //     if (err) return console.log(err);
-          //     console.log("Pdf Successfully generated", res);
-          //   });
+ 
           htmlPdf
             .create(newHTML, options)
             .then(pdf => pdf.toFile("resume.pdf"));
